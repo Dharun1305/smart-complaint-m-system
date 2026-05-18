@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SCMS — Admin Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /> 
+</head>
+<body class="bg-light">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="admin_dashboard.html">
+        <img src="images/logo.png" alt="SmartCMS Logo" class="me-2" style="height: 45px;">
+        SmartCMS | Admin
+      </a>
+      <!-- Filled dynamically by main.js based on user role -->
+      <div class="ms-auto d-flex" id="authNavContainer"></div>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+    <h4 class="mb-3">System Overview and Complaint Queue</h4>
+
+    <!-- Stat cards -->
+    <div class="row row-cols-1 row-cols-md-4 g-4 mb-4 text-center">
+      <div class="col">
+        <div class="card p-3 border-primary bg-primary-subtle card-hover-effect" data-status="">
+          <p class="stat-card-label text-primary mb-1">Total Complaints</p>
+          <h2 class="fw-bold" id="statTotalCount">0</h2>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card p-3 border-danger bg-danger-subtle card-hover-effect" data-status="open">
+          <p class="stat-card-label text-danger mb-1">Still Open</p>
+          <h2 class="fw-bold" id="statOpenCount">0</h2>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card p-3 border-primary card-hover-effect" data-status="in_progress">
+          <p class="stat-card-label text-primary mb-1">In Progress</p>
+          <h2 class="fw-bold" id="statInProgressCount">0</h2>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card p-3 border-success bg-success-subtle card-hover-effect" data-status="resolved">
+          <p class="stat-card-label text-success mb-1">Total Resolved</p>
+          <h2 class="fw-bold" id="statResolvedCount">0</h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="mb-3 d-flex gap-2 align-items-center">
+      <select id="filterStatus" class="form-select w-auto">
+        <option value="">All Statuses</option>
+        <option value="open">Open</option>
+        <option value="in_progress">In Progress</option>
+        <option value="resolved">Resolved</option>
+      </select>
+      <input id="filterQuery" class="form-control" type="text"
+             placeholder="Search by title, category, or submitter..." />
+    </div>
+
+    <!-- Complaints list -->
+    <div class="card shadow-sm">
+      <ul class="list-group list-group-flush" id="complaintsListBody">
+        <li class="list-group-item text-center text-muted py-5" id="loadingMessage">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <p class="mt-2 mb-0 small">Fetching all complaints...</p>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="py-4 bg-white text-center border-top mt-5">
+    <div class="container">
+      <p class="mb-0 small text-muted">SmartCMS &copy; 2024. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+/* css/style.css */
+
+
+/* --- 1. Theme Variables: Orange-Red & White (User's New Theme) --- */
+:root {
+    /* Define the new primary color: a warm, deep orange-red (HEX: #FF5722) */
+    --bs-primary: #FF5722;
+    --bs-primary-rgb: 255, 87, 34;
+
+    /* Subtle background and border colors for themed cards */
+    --bs-primary-subtle: #fbe9e7; /* Very light orange-red */
+    --bs-border-primary: #ffab91; /* Light border color */
+    
+    /* Ensure primary text on primary background is white */
+    --bs-navbar-active-color: #ffffff;
+    --bs-btn-primary-color: #ffffff;
+}
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background-color: var(--bs-light);
+}
+
+
+/* --- 2. Base Component Styling --- */
+
+.card {
+    border: none;
+    border-radius: 16px; /* Increased radius for modern feel */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Soft, floating effect */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.img-thumbnail {
+    border-radius: 8px; /* Match card styling */
+}
+
+/* Status Badge Styling for prominence */
+.badge-status {
+    padding: 0.5em 1rem; /* More pill-shaped */
+    font-size: 0.8em;
+    min-width: 100px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Stat Card Colors */
+.bg-danger-subtle { background-color: #f8d7da !important; }
+.border-danger { border-color: #f5c6cb !important; border-width: 2px !important; }
+
+.bg-success-subtle { background-color: #d1e7dd !important; }
+.border-success { border-color: #badbcc !important; border-width: 2px !important; }
+
+.bg-primary-subtle { background-color: var(--bs-primary-subtle) !important; }
+.border-primary { border-color: var(--bs-border-primary) !important; border-width: 2px !important; }
+
+/* Styling for stat card labels */
+.stat-card-label {
+    font-size: 0.9em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* --- 3. Logo/Navbar Fix --- */
+.navbar-brand {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+/* --- 4. Motion Effects for Dashboard --- */
+.card-hover-effect {
+    cursor: pointer;
+}
+
+.card-hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Table Row Click Effect (for complaints_list) */
+.table-hover tbody tr:hover {
+    background-color: var(--bs-primary-subtle);
+}
+
+/* --- 5. Strong Navbar Auth Buttons (Login / Register) --- */
+
+/* Ensure the container lays out the buttons nicely */
+#authNavContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Shared pill style – override link look completely */
+.navbar #authNavContainer .btn-auth-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px !important;
+    font-weight: 700 !important;
+    padding: 0.35rem 1.4rem !important;
+    font-size: 0.9rem !important;
+    border-width: 2px !important;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.3) !important;
+    text-decoration: none !important;
+    line-height: 1.2;
+    transition:
+        transform 0.1s ease,
+        box-shadow 0.1s ease,
+        background-color 0.1s ease,
+        color 0.1s ease,
+        border-color 0.1s ease;
+}
+
+/* Login: white pill on orange navbar */
+.navbar #authNavContainer .btn-auth-login {
+    background-color: #ffffff !important;
+    color: var(--bs-primary) !important;
+    border-color: #ffffff !important;
+}
+
+/* Register: solid red pill */
+.navbar #authNavContainer .btn-auth-register {
+    background-color: #c62828 !important;   /* deep red */
+    border-color: #b71c1c !important;
+    color: #ffffff !important;
+}
+
+/* Hover/active effects */
+.navbar #authNavContainer .btn-auth-login:hover,
+.navbar #authNavContainer .btn-auth-login:focus {
+    background-color: #ffe0d3 !important;
+    border-color: #ffe0d3 !important;
+    color: var(--bs-primary) !important;
+    transform: translateY(-1px);
+}
+
+.navbar #authNavContainer .btn-auth-register:hover,
+.navbar #authNavContainer .btn-auth-register:focus {
+    background-color: #e53935 !important;
+    border-color: #c62828 !important;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+}

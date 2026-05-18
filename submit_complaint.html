@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SCMS — Submit Complaint</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /> 
+</head>
+<body class="bg-light">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="dashboard.html">
+        <img src="images/logo.png" alt="SmartCMS Logo" class="me-2" style="height: 45px;">
+        SmartCMS
+      </a>
+      <div class="ms-auto" id="authNavContainer">
+        </div>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h4 class="mb-3 text-primary"><i class="fas fa-bullhorn me-2"></i> Submit a new complaint</h4>
+            <form id="complaintForm" action="#" method="post" enctype="multipart/form-data" novalidate>
+              
+              <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input id="title" name="title" class="form-control" maxlength="100" required />
+                <div class="invalid-feedback">A brief title is required.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <select id="category" name="category" class="form-select" required>
+                  <option value="">Select a Category</option>
+                  <option value="Road Maintenance">Road Maintenance (Potholes, Damage)</option>
+                  <option value="Street Lighting">Street Lighting (Outages)</option>
+                  <option value="Water & Sanitation">Water & Sanitation (Leaks, Sewage)</option>
+                  <option value="Waste Management">Waste Management (Uncollected Trash)</option>
+                  <option value="Public Safety">Public Safety (Hazardous Objects)</option>
+                  <option value="Other">Other</option>
+                </select>
+                <div class="invalid-feedback">Please select a category.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="location" class="form-label">Location (Address or Landmark)</label>
+                <input id="location" name="location" class="form-control" required />
+                <div class="form-text">Example: Corner of Main St. and Elm Ave.</div>
+                <div class="invalid-feedback">The location is required.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea id="description" name="description" rows="4" class="form-control" required></textarea>
+                <div class="form-text">Provide as much detail as possible, including specific coordinates if you have them.</div>
+                <div class="invalid-feedback">A detailed description is required.</div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Attach photos (up to 4)</label>
+                <input id="images" name="images[]" type="file" accept="image/*" class="form-control" multiple />
+                <div id="preview" class="mt-2 d-flex gap-2 flex-wrap"></div>
+                <div class="form-text">Accepted formats: JPG, PNG, GIF. Max 4 files.</div>
+              </div>
+
+              <div class="d-flex justify-content-end">
+                <button class="btn btn-light me-2" type="reset">Reset</button>
+                <button class="btn btn-primary" type="submit">Submit Complaint</button>
+              </div>
+              <div id="complaintMessage" class="small mt-2 text-danger"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
